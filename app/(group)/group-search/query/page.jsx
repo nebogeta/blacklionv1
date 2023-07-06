@@ -3,12 +3,12 @@ export const metadata = {
     description: "Free & open-source expense tracker app",
 };
 
-import Group from "@/components/Group";
+import GroupExpenses from "@/components/GroupExpenses";
 
 const GroupPage = () => {
 
-    return <Group/>
+    return <GroupExpenses/>
 
 };
 
-export default Group;
+export default GroupPage;

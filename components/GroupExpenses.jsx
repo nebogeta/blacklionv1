@@ -4,10 +4,10 @@ import GroupForm from "@/ui/GroupForm";
 import {useRouter} from "next/navigation";
 import {connect} from 'react-redux';
 import {setExpenses} from "@/redux/action";
-import {toast} from "@/components/ui/Toast";
+import {toast} from "@/ui/ToastComponent";
 
 
-const Group = ({setExpenses}) => {
+const GroupExpenses = ({setExpenses}) => {
     const [dynamicQuery, setDynamicQuery] = useState([]);
     const [isEditing, setIsEditing] = useState(false);
     const router = useRouter();
@@ -62,4 +62,4 @@ const Group = ({setExpenses}) => {
     );
 };
 
-export default connect(null, {setExpenses})(Group);
+export default connect(null, {setExpenses})(GroupExpenses);

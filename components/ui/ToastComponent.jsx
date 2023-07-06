@@ -6,7 +6,7 @@ import hotToast, { Toaster as HotToaster } from 'react-hot-toast';
 
 export const Toaster = HotToaster;
 
-export function Toast({ visible, className, ...props }) {
+export function ToastComponent({ visible, className, ...props }) {
   return (
     <div
       className={cn(
@@ -46,7 +46,7 @@ export function toast(opts) {
 
   return hotToast.custom(
     ({ visible }) => (
-      <Toast
+      <ToastComponent
         visible={visible}
         className={cn({
           'bg-red-600 text-white': type === 'error',
@@ -55,7 +55,7 @@ export function toast(opts) {
       >
         <ToastTitle>{title}</ToastTitle>
         {message && <ToastDescription>{message}</ToastDescription>}
-      </Toast>
+      </ToastComponent>
     ),
     { duration }
   );

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { Button } from "./ui/Button";
-import { toast } from './ui/toast';
+import { toast } from '@/ui/ToastComponent';
 
 
 

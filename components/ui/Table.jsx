@@ -2,7 +2,7 @@
 
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/ui/Button";
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/ui/ToastComponent";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useTheme } from "next-themes";

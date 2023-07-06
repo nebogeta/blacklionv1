@@ -3,7 +3,7 @@ import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { Button } from "./Button";
 import { redirect } from "next/dist/server/api-utils";
-import { toast } from "./toast";
+import { toast } from "./ToastComponent";
 
 const SignOutButton = ({}) => {
   const [isLoading, setIsLoading] = useState(false);

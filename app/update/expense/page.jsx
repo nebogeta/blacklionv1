@@ -1,6 +1,6 @@
 "use client";
 import Form from '@/components/ui/Form';
-import { toast } from '@/components/ui/toast';
+import { toast } from '@/ui/ToastComponent';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 

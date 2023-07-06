@@ -12,7 +12,7 @@ import {
 
 import {Loader2} from "lucide-react";
 import {useRouter} from "next/navigation";
-import {toast} from "./ui/toast";
+import {toast} from "@/ui/ToastComponent";
 import {getServerSession} from "next-auth";
 import * as React from "react";
 import {authOptions} from "@/lib/auth";

@@ -3,7 +3,7 @@
 import { signIn } from 'next-auth/react'
 import {  useState } from 'react'
 import { Button } from './Button'
-import { toast } from './toast'
+import { toast } from './ToastComponent'
 
 const SignInButton = ({}) => {
     const [isLoading, setIsLoading] = useState(false);

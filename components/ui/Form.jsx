@@ -35,7 +35,7 @@ function Form({ type, expense, setExpense, isEditing, updateExpense }) {
             type="number"
           />
           <Input
-            placeholder="Enter Group name"
+            placeholder="Enter GroupExpenses name"
             value={expense.group}
             onChange={(e) => setExpense({ ...expense, group: e.target.value })}
           />

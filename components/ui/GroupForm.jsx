@@ -6,7 +6,7 @@ import Paragraph from "@/components/ui/Paragraph";
 import {Input} from "@/components/ui/Input";
 import {Button} from "@/components/ui/Button";
 import {useState, useEffect} from "react";
-import {toast} from "@/ui/toast";
+import {toast} from "@/ui/ToastComponent";
 
 
 function GroupForm({type, dynamicQuery, setDynamicQuery, isEditing, updateQuery}) {

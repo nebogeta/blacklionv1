@@ -6,7 +6,7 @@ import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import LargeHeading from "./ui/LargeHeading";
 import Paragraph from "./ui/Paragraph";
-import { toast } from "./ui/toast";
+import { toast } from "@/ui/ToastComponent";
 import { useRouter } from "next/navigation";
 
 const CreateExpense = () => {
@@ -79,7 +79,7 @@ const CreateExpense = () => {
             type="number"
           />
           <Input
-            placeholder="Enter Group"
+            placeholder="Enter GroupExpenses"
             value={data.group}
             onChange={(e) => setData({ ...data, group: e.target.value })}
           />
