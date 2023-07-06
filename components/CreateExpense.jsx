@@ -58,7 +58,7 @@ const CreateExpense = () => {
         <LargeHeading className="text-center">
           Create your Expenses
         </LargeHeading>
-        <Paragraph>You haven't created your expense yet.</Paragraph>
+        <Paragraph>You haven`&apos;`t created your expense yet.</Paragraph>
       </div>
       <form
         onSubmit={createNewExpense}

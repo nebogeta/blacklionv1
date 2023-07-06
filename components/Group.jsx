@@ -23,11 +23,11 @@ const Group = ({setExpenses}) => {
 
             if (expenses.length === 0) {
                 toast({
-                    title: "No expense found for the given date range.",
-                    message: "Please Select a valid date range.",
+                    title: "No expense/group found for the given input .",
+                    message: "Please Select a valid date range or group.",
                     type: "error",
                 })
-                console.log("No expense found for the given date range.");
+
                 router.push('/dashboard');
                 return;
             }
@@ -36,7 +36,7 @@ const Group = ({setExpenses}) => {
 
                 setExpenses(expenses);
 
-                router.push('/group');
+                router.push('/group-search');
             }
 
         } catch (error) {

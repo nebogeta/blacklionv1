@@ -11,7 +11,7 @@ function Form({ type, expense, setExpense, isEditing, updateExpense }) {
       <div className="flex flex-col gap-6 items-center mt-12">
         <DollarSign className="mx-auto h-12 w-12 text-gray-400" />
         <LargeHeading className="text-center">{type} your Expense</LargeHeading>
-        <Paragraph>You haven&apost {type}ed your expense yet.</Paragraph>
+        <Paragraph>You haven`&apos;`t {type}ed your expense yet.</Paragraph>
       </div>
       <form
         onSubmit={updateExpense}

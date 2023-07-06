@@ -12,11 +12,7 @@ const SignInButton = ({}) => {
       try {
         setIsLoading(true);
         await signIn('google');
-        toast({
-            title: 'Signed in',
-            message: 'You are now signed in.',
-            type: 'success',
-        })
+
       } catch (error) {
 
         toast({

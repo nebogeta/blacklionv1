@@ -37,7 +37,7 @@ const GroupDashboard = ({expenses}) => {
         }
         amountOwed[name] = amountOwedToPay;
     });
-    console.log({"amountOwed": amountOwed});
+
     return (
         <div className="container flex flex-col gap-6">
             <LargeHeading className='mt-6'>Welcome back to {expenses[0]?.group} expense group</LargeHeading>

@@ -1,5 +1,5 @@
 export const metadata = {
-    title: "Blk expense | Group",
+    title: "Blk expense | Search",
     description: "Free & open-source expense tracker app",
 };
 

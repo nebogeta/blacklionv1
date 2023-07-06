@@ -1,13 +1,13 @@
-
 export const metadata = {
-  title: "Blk expense | Group",
-  description: "Free & open-source expense tracker app",
+    title: "Blk expense | Group",
+    description: "Free & open-source expense tracker app",
 };
 
 import Group from "@/components/Group";
+
 const GroupPage = () => {
 
-  return<Group />
+    return <Group/>
 
 };
 

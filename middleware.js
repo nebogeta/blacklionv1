@@ -9,11 +9,11 @@ export default withAuth(
     //Manage protected routes
     const token = await getToken({ req });
     const isAuth = !!token;
-    console.log("isAuth", isAuth);
-    const isAuthPage = pathname.startsWith("/login");
-    console.log("isAuthPage", isAuthPage);
 
-    const sensitiveRoutes = ["/dashboard", "/create", "/update", "/group"];
+    const isAuthPage = pathname.startsWith("/login");
+
+
+    const sensitiveRoutes = ["/dashboard", "/create", "/update", "/group-search"];
 
     if (isAuthPage) {
       if (isAuth) {
@@ -51,7 +51,7 @@ export const config = {
     "/api/:path*",
     "/expense/:path*",
     "/update/:path*",
-    "/group/:path*",
+    "/group-search/:path*",
       "/login/:path*",
   ],
 

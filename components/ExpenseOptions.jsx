@@ -39,7 +39,7 @@ const ExpenseOptions = () => {
   const group = () => {
     try {
       setGroupExpense(true);
-      router.push("/group/query");
+      router.push("/group-search/query");
     } catch (error) {
       toast({
         title: "Something went wrong creating expense",
