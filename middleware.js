@@ -51,7 +51,7 @@ export const config = {
         "/expense/:path*",
         "/update/:path*",
         "/group-search/:path*",
-        "/login/:path*",
+
     ],
 
 };
