@@ -32,16 +32,15 @@ export default function Home() {
             .
           </Paragraph>
 
-          <div className="relative ml-8 w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute">
+          <div className='relative w-full max-w-xl lg:max-w-3xl lg:left-1/2 aspect-square lg:absolute'>
             <Image
-              priority
-              className="img-shadow"
-              quality={100}
-              style={{ objectFit: "scale-down" }}
-               fill
-              src="/blacklion.png"
-              alt="black-lion"
-
+                priority
+                className='img-shadow '
+                quality={100}
+                style={{ objectFit: 'contain' }}
+                fill
+                src='/typewriter.png'
+                alt='typewriter'
             />
           </div>
         </div>
