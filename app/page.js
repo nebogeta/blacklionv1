@@ -21,8 +21,8 @@ export default function Home() {
           </LargeHeading>
 
           <Paragraph className="max-w-xl lg:text-left">
-            With Black Lion expense tracking app, you can easily track your
-            expenses without spreadsheet hustle{" "}
+            With black lion expense tracking app, you can easily track your
+            expenses without the hustle spreadsheet{" "}
             <Link
               href="/login"
               className="underline underline-offset-2 text-black dark:text-light-gold"

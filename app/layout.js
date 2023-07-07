@@ -19,10 +19,10 @@ export default function RootLayout({children}) {
         <body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
 
         <Providers>
+            <Navbar/>
+            <Toaster position="bottom-center"/>
+            <MobileMenu/>
             <ReduxProvider>
-                <Navbar/>
-                <Toaster position="bottom-center"/>
-                <MobileMenu/>
                 <main>{children}</main>
             </ReduxProvider>
         </Providers>

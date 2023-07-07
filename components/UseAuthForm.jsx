@@ -10,10 +10,10 @@ import { toast } from '@/ui/ToastComponent';
 
 const UserAuthForm = ({ className, ...props }) => {
     const [isLoading, setIsLoading] = useState(false);
-  
+
     const loginWithGoogle = async () => {
       setIsLoading(true);
-  
+
       try {
         await signIn('google');
       } catch (error) {
@@ -26,7 +26,7 @@ const UserAuthForm = ({ className, ...props }) => {
         setIsLoading(false);
       }
     };
-  
+
     return (
       <div className={cn('flex justify-center', className)} {...props}>
         <Button
@@ -71,5 +71,6 @@ const UserAuthForm = ({ className, ...props }) => {
       </div>
     );
   };
-  
+
   export default UserAuthForm;
+
