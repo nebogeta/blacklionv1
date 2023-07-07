@@ -1,24 +1,26 @@
-import { getAuthSession } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
+import { authOptions} from "@/lib/auth";
 
 export async function GET(req) {
   try {
-    const session = await getAuthSession();
+    const user = await getServerSession(authOptions);
 
-    if (!session?.user) {
+    if (!user) {
       return new NextResponse("Unauthenticated", { status: 403 });
     }
 
     const expense = await db.expense.findMany({
       where: {
-        userId: session.user.id,
+        userId: user.user.id,
+
       },
     });
 
     return NextResponse.json(expense);
   } catch (error) {
-    console.log(error);
+
     return new NextResponse("Internal error", { status: 500 });
   }
 }

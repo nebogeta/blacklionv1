@@ -1,12 +1,13 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
+import {authOptions} from "@/lib/auth";
 
 
 // create get by id route
 export async function GET(req, { params }) {
   try {
-    const session = await getAuthSession();
+    const session = await getAuthSession(authOptions);
 
     if (!session?.user) {
       return new NextResponse("Unauthenticated", { status: 403 });
@@ -24,7 +25,7 @@ export async function GET(req, { params }) {
 
     return NextResponse.json(expense);
   } catch (error) {
-    console.log(error);
+
     return new NextResponse("Internal error", { status: 500 });
   }
 }
@@ -50,7 +51,7 @@ export async function DELETE(req, { params }) {
 
     return NextResponse.json(expense);
   } catch (error) {
-    console.log(error);
+
     return new NextResponse("Internal error", { status: 500 });
   }
 }
@@ -97,7 +98,7 @@ export async function PATCH(req, { params }) {
 
     return new NextResponse(JSON.stringify(expense));
   } catch (error) {
-    console.log(error);
+
     return new NextResponse("Internal error", { status: 500 });
   }
 }

@@ -1,105 +1,89 @@
-'use client';
+'use client'
 
-import {Button} from "./ui/Button";
-import {MenuIcon} from "lucide-react";
-
+import { Info, LayoutDashboard, Loader2, User } from 'lucide-react'
+import { signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
+import { useState } from 'react'
+import { Button } from './ui/Button'
 import {
     DropdownMenu,
     DropdownMenuContent,
+    DropdownMenuGroup,
     DropdownMenuItem,
+    DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
+} from './ui/DropdownMenu'
+import { toast } from '@/components/ui/ToastComponent'
 
-import {Loader2} from "lucide-react";
-import {useRouter} from "next/navigation";
-import {toast} from "@/ui/ToastComponent";
-import {getServerSession} from "next-auth";
-import * as React from "react";
-import {authOptions} from "@/lib/auth";
+const MobileMenu = () => {
+    const { data: session } = useSession()
+    const [isLoading, setIsLoading] = useState(false)
+    const [open, setOpen] = useState(false)
 
-
-const MobileMenu = async () => {
-    const session = await getServerSession(authOptions);
-
-    const router = useRouter();
-
-    const dashboard = () => {
+    const signUserOut = async () => {
         try {
-
-            router.push("/dashboard");
+            setIsLoading(true)
+            await signOut()
         } catch (error) {
             toast({
-                title: "Something went wrong creating expense",
-                message: "Please try again later",
-                type: "error",
-            });
+                title: 'Error signing out',
+                message: 'Please try again later.',
+                type: 'error',
+            })
         }
-    };
-
-    const login = () => {
-        try {
-
-            router.push("/login");
-        } catch (error) {
-            toast({
-                title: "Something went wrong creating expense",
-                message: "Please try again later",
-                type: "error",
-            });
-        }
-    };
-
-    const documentation = () => {
-        try {
-
-            router.push("/documentation");
-        } catch (error) {
-            toast({
-                title: "Something went wrong creating expense",
-                message: "Please try again later",
-                type: "error",
-            });
-        }
-    };
-
-    const home = () => {
-        try {
-
-            router.push("/");
-        } catch (error) {
-            toast({
-                title: "Something went wrong creating expense",
-                message: "Please try again later",
-                type: "error",
-            });
-        }
-    };
+    }
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild
-            >
-                <Button variant="ghost" size="sm">
-                    <MenuIcon
-                        className="rotate-0 scale-100 transition-all hover:text-slate-900 dark:-rotate-90 dark:scale-0 dark:text-slate-400 dark:hover:text-slate-100"/>
-                    <span className="sr-only">Burger Menu</span>
-                </Button>
-            </DropdownMenuTrigger>
+        <nav className='md:hidden fixed z-50 bottom-20 right-0 left-0 flex justify-center'>
+            <div className='shadow-2xl rounded-md outline outline-2 outline-white dark:outline-slate-900'>
+                <DropdownMenu open={open} onOpenChange={setOpen}>
+                    <DropdownMenuTrigger asChild onClick={() => setOpen((prev) => !prev)}>
+                        <Button variant='outline' size='lg'>
+                            Menu
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className='w-56'>
+                        <DropdownMenuGroup onClick={() => setOpen(false)}>
+                            <DropdownMenuItem asChild>
+                                {session ? (
+                                    <Link
+                                        href='/dashboard'
+                                        className='w-full flex items-center gap-1.5'>
+                                        <LayoutDashboard className='mr-2 h-5 w-5' />
+                                        <span>Dashboard</span>
+                                    </Link>
+                                ) : (
+                                    <Link
+                                        href='/login'
+                                        className='flex w-full items-center gap-1.5'>
+                                        <LayoutDashboard className='mr-2 h-5 w-5' />
+                                        <span>Sign in</span>
+                                    </Link>
+                                )}
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem asChild>
+                                <Link
+                                    href='/documentation'
+                                    className='w-full flex items-center gap-1.5'>
+                                    <Info className='mr-2 h-5 w-5' />
+                                    <span>Docs</span>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem onClick={signUserOut} className='gap-1.5'>
+                                <User className='mr-2 h-5 w-5' />
+                                <span>{isLoading ? 'Signing out' : 'Sign out'}</span>
+                                {isLoading ? (
+                                    <Loader2 className='animate-spin h-4 w-4' />
+                                ) : null}
+                            </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+        </nav>
+    )
+}
 
-            <DropdownMenuContent align="end" forceMount>
-                {session ? (
-                    <>
-                        <DropdownMenuItem onClick={dashboard}>Dashboard</DropdownMenuItem>
-                        <DropdownMenuItem onClick={documentation}>Documentation</DropdownMenuItem>
-                        <DropdownMenuItem onClick={home}>Sign Out</DropdownMenuItem>
-                    </>
-                ) : (
-                    <DropdownMenuItem onClick={login}>Login</DropdownMenuItem>
-
-                )}
-            </DropdownMenuContent>
-        </DropdownMenu>
-    );
-};
-
-export default MobileMenu;
+export default MobileMenu

@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-
+import {authOptions} from "@/lib/auth";
 import { getAuthSession } from "@/lib/auth";
 
 export async function POST(req) {
   try {
-    const session = await getAuthSession();
+    const session = await getAuthSession(authOptions);
 
     if (!session?.user)
       return new NextResponse("Unauthorized", { status: 401 });

@@ -1,4 +1,4 @@
-import {authOptions, getAuthSession} from "@/lib/auth";
+
 import {db} from "@/lib/db";
 import {NextResponse} from "next/server";
 
@@ -36,7 +36,7 @@ export async function GET(req, {params}) {
 
         return new NextResponse(JSON.stringify(expenses));
     } catch (error) {
-        console.error(error);
+
         return new NextResponse("Internal error", {status: 500});
     }
 }

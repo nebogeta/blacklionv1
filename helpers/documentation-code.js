@@ -6,13 +6,13 @@ const options = {
     data: {
       Amount: '$99.99',
       Date: '06/06/2023',
-      Description: 'Instacart',
+      Description: 'Instacart'
     },
     headers: {
-      'Authorization': 'Session_Token',
+      'Authorization': 'Session_Token'
     }
   };
-  
+
 axios.request(options).then(function (response) {
     console.log(response.data);
 }).catch(function (error) {
@@ -29,13 +29,13 @@ Date = 'Second text'
 Description = 'Third text'
 
 headers = {
-    'Authorization': Session_Token,
+    'Authorization': authorization
 }
 
 payload = {
     'Amount': $99.99,
     'Date': 06/06/2023,
-    'Description': Instacart,
+    'Description': Instacart
 }
 
 response = requests.post(url, headers=headers, json=payload)
@@ -45,3 +45,4 @@ if response.status_code == 200:
     print(data)
 else:
     print(f'Request failed with status code {response.status_code}')`;
+

@@ -5,6 +5,7 @@ import Providers from "@/components/Providers";
 import Navbar from "@/components/Navibar";
 import {Toaster} from "@/ui/ToastComponent";
 import ReduxProvider from "@/redux/provider";
+import MobileMenu from "@/components/MobileMenu";
 
 
 const inter = Inter({subsets: ["latin"]});
@@ -19,14 +20,11 @@ export default function RootLayout({children}) {
 
         <Providers>
             <ReduxProvider>
-
-                {children}
-
+                <Navbar/>
+                <Toaster position="bottom-center"/>
+                <MobileMenu/>
+                <main>{children}</main>
             </ReduxProvider>
-
-            <Toaster position="bottom-center"/>
-            <Navbar/>
-
         </Providers>
 
         {/* Allow more height for mobile menu on mobile */}
